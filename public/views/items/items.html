@@ -1,0 +1,70 @@
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Items
+            <small>Current status</small>
+          </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">          
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Items</h3>
+                </div><!-- /.box-header -->
+               
+                <div class="box-body">
+                  <div class="on-right"><button class="btn btn-block btn-primary btn-sm btn-in-td" data-toggle="collapse" data-target="#collapsenow">+ New item</button></div>               
+                  <div class="task-title custom-section" id="collapsenow" collapse="isCollapsed">
+                                              <span class="task-title-sp">
+                                                  <label class="col-sm-2 col-sm-2 control-label">Item name</label>
+                                                      <div class="col-sm-3">
+                                                          <input type="text" class="form-control collapsed-input" ng-model="newItem.name" required>
+                                                      </div>
+                                                      <label class="col-sm-2 col-sm-2 control-label">Status</label>
+                                                      <div class="col-sm-3">
+                                                          <input type="text" class="form-control collapsed-input" ng-model="newItem.status" required>
+                                                      </div>
+                                                      </span>
+                                             <div class="pull-right hidden-phone">
+                                              <div class="add-task-row">
+                                                  <button class="btn btn-success btn-sm pull-left right-button" ng-click="add()">Add</button>
+                                                  <button class="btn btn-danger btn-sm pull-left" data-toggle="collapse" data-target="#collapsenow">Cancel</button>
+                                              </div>
+                                             </div>
+                                          </div>  
+                                          </div>
+                     <div class="box-body">                          
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr> 
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th class="col-xs-2 centered-th">Edit</th>
+                        <th class="col-xs-2 centered-th">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in items | orderBy:'name'">
+                        <td>{{item.name}}</td>
+                        <td class="status" ng-style="set_color(item)">{{item.status}}</td>
+                        <td align="center">
+                              <button class="btn btn-block btn-info btn-xs btn-icon"><i class="fa fa-fw fa-edit"></i></button>
+                        </td>
+                        <td align="center">
+                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(item._id)"><i class="fa fa-fw fa-remove"></i></button>
+                        </td>
+                      </tr>             
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </section><!-- /.content -->
+        
+       
+        
+      

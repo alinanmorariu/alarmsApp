@@ -1,0 +1,89 @@
+h3.number_of_alarms
+{
+	font-size: 120px;
+}
+
+p.alarm_short_description
+{
+	font-size: 26px;
+}
+
+.btn-in-td
+{
+	max-width: 120px; 
+}
+
+.btn-icon
+{
+	max-width: 40px; 
+}
+
+.action-td td
+{
+	align: center;
+}
+
+.right-button
+{
+	margin-right: 6px;
+}
+
+.right-span
+{
+	color:#777; 
+	padding-right:6px;
+}
+
+.on-right
+{
+	float: right;
+}
+
+.right-div
+{
+	padding-right: 15px;
+	float: right;
+}
+
+.custom-accordition{
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left:15px;
+}
+
+.collapsed-content
+{
+	margin-top:10px;
+}
+
+.custom-content-box
+{
+	padding-bottom:36px;
+}
+
+.collapsed-input
+{
+	margin-bottom:10px;
+}
+
+.custom-button
+{
+	margin-right:10px;
+	margin-bottom:20px;
+}
+
+.custom-section
+{
+	margin-top:60px;
+	margin-bottom:20px;
+}
+
+.status
+{
+	font-weight:bold;
+}
+
+.centered-th
+{
+	text-align:center;
+}
