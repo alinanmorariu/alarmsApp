@@ -37,6 +37,26 @@
                                              </div>
                                           </div>  
                                           </div>
+                <div class="box-body">          
+                  <div class="task-title custom-section" id="collapseme" collapse="isCollapsed">
+                                              <span class="task-title-sp">
+                                                  <label class="col-sm-2 col-sm-2 control-label">Item name</label>
+                                                      <div class="col-sm-3">
+                                                          <input type="text" class="form-control collapsed-input" ng-model="item.name" required>
+                                                      </div>
+                                                      <label class="col-sm-2 col-sm-2 control-label">Status</label>
+                                                      <div class="col-sm-3">
+                                                          <input type="text" class="form-control collapsed-input" ng-model="item.status" required>
+                                                      </div>
+                                                      </span>
+                                             <div class="pull-right hidden-phone">
+                                              <div class="add-task-row">
+                                                  <button class="btn btn-success btn-sm pull-left right-button" ng-click="save()">Save</button>
+                                                  <button class="btn btn-danger btn-sm pull-left" data-toggle="collapse" data-target="#collapseme">Cancel</button>
+                                              </div>
+                                             </div>
+                                          </div>  
+                                          </div>
                      <div class="box-body">                          
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -52,7 +72,7 @@
                         <td>{{item.name}}</td>
                         <td class="status" ng-style="set_color(item)">{{item.status}}</td>
                         <td align="center">
-                              <button class="btn btn-block btn-info btn-xs btn-icon"><i class="fa fa-fw fa-edit"></i></button>
+                              <button class="btn btn-block btn-info btn-xs btn-icon" data-toggle="collapse" data-target="#collapseme" ng-click="edit(item._id)"><i class="fa fa-fw fa-edit"></i></button>
                         </td>
                         <td align="center">
                               <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(item._id)"><i class="fa fa-fw fa-remove"></i></button>

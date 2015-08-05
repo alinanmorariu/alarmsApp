@@ -27,6 +27,22 @@ app.delete('/items/:id', function(req, res){
 	})
 })
 
+app.get('/items/:id', function(req, res){
+	var id = req.params.id;
+	itemsdb.items.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
+		res.json(doc);
+	})
+})
+
+app.put('/items/:id', function(req, res){
+	var id = req.params.id;
+	itemsdb.items.findAndModify({query: {_id: mongojs.ObjectId(id)},
+		update: {$set: {name: req.body.name, status: req.body.status}},
+		new: true}, function(err,doc){
+			res.json(doc);
+		});
+});
+
 app.listen(3000);
 
 console.log('This server listens to port 3000!');

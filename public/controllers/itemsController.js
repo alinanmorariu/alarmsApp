@@ -36,6 +36,26 @@ items.controller('itemsController', ['$scope', '$http', '$window', function($sco
 		})
 	}
 	
+	$scope.edit = function(id){
+		$http.get('/items/' + id).success(function(response){
+			$scope.item = response;	
+		})
+	};
+	
+	$scope.save = function(){
+		var confirmUpdate = confirm ('Are you sure you want to make changes to this item?');
+		if (confirmUpdate == true){				
+				$http.put('/items/' + $scope.item._id, $scope.item).success(function(response){
+					alert('Changes have been saved!');
+					$window.location.reload();			
+			})
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
+	
 	$scope.delete = function(id){
 			var confirmDeletion = confirm('Are you sure you want to delete this item?');
 			if (confirmDeletion == true) {
