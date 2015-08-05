@@ -1,4 +1,4 @@
-var alarmsDemo = angular.module('alarmsDemo', ['config', 'ui.bootstrap', 'ngRoute', 'items']);
+var alarmsDemo = angular.module('alarmsDemo', ['config', 'ui.bootstrap', 'ngRoute', 'items', 'alarms']);
 
 // routes
 alarmsDemo.config(function($routeProvider) {
