@@ -87,3 +87,9 @@ p.alarm_short_description
 {
 	text-align:center;
 }
+
+#mynetwork
+{
+	width: 900px;
+    height: 600px;
+}

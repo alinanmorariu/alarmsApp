@@ -20,9 +20,9 @@
                   <div class="on-right"><button class="btn btn-block btn-primary btn-sm btn-in-td" data-toggle="collapse" data-target="#collapsenow">+ New item</button></div>               
                   <div class="task-title custom-section" id="collapsenow" collapse="isCollapsed">
                                               <span class="task-title-sp">
-                                                  <label class="col-sm-2 col-sm-2 control-label">Item name</label>
+                                                  <label class="col-sm-2 col-sm-2 control-label">Item label</label>
                                                       <div class="col-sm-3">
-                                                          <input type="text" class="form-control collapsed-input" ng-model="newItem.name" required>
+                                                          <input type="text" class="form-control collapsed-input" ng-model="newItem.label" required>
                                                       </div>
                                                       <label class="col-sm-2 col-sm-2 control-label">Status</label>
                                                       <div class="col-sm-3">
@@ -40,9 +40,9 @@
                 <div class="box-body">          
                   <div class="task-title custom-section" id="collapseme" collapse="isCollapsed">
                                               <span class="task-title-sp">
-                                                  <label class="col-sm-2 col-sm-2 control-label">Item name</label>
+                                                  <label class="col-sm-2 col-sm-2 control-label">Item label</label>
                                                       <div class="col-sm-3">
-                                                          <input type="text" class="form-control collapsed-input" ng-model="item.name" required>
+                                                          <input type="text" class="form-control collapsed-input" ng-model="item.label" required>
                                                       </div>
                                                       <label class="col-sm-2 col-sm-2 control-label">Status</label>
                                                       <div class="col-sm-3">
@@ -68,8 +68,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="item in items | orderBy:'name'">
-                        <td>{{item.name}}</td>
+                      <tr ng-repeat="item in items | orderBy:'label'">
+                        <td>{{item.label}}</td>
                         <td class="status" ng-style="set_color(item)">{{item.status}}</td>
                         <td align="center">
                               <button class="btn btn-block btn-info btn-xs btn-icon" data-toggle="collapse" data-target="#collapseme" ng-click="edit(item._id)"><i class="fa fa-fw fa-edit"></i></button>

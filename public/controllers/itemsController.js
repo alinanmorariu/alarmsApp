@@ -2,10 +2,34 @@ var items = angular.module ('items', []);
 
 items.controller('itemsController', ['$scope', '$http', '$window', function($scope, $http, $window) {	
 	$scope.isCollapsed = true;
-	
+
 	$http.get('/items').success(function(response){
-			$scope.items = response;
-			 $scope.set_color = function (item) {
+			$scope.items = response;		 
+			$scope.add = function(){
+				
+		        $scope.newItem.id = $scope.items.length + 1;
+				
+				if($scope.newItem.status === normal) {
+					$scope.newItem.group = normalGroup;
+				}
+				else if ($scope.newItem.status === attention) {
+					$scope.newItem.group = attentionGroup;
+				}
+				else if ($scope.newItem.status === warning) {
+					$scope.newItem.group = warningGroup;
+				}
+				else {
+					$scope.newItem.group = dangerGroup;
+				}
+				
+		        $http.post('/items', $scope.newItem).success(function(response){
+			         alert('The item has been added!');
+		             $window.location.reload();	
+		        })
+	        }
+	});
+	
+	$scope.set_color = function (item) {
                 if (item.status == normal) {
                     return {
                         color: normalStatusColor
@@ -27,14 +51,8 @@ items.controller('itemsController', ['$scope', '$http', '$window', function($sco
                     }
                 }				
             }
-	});
+			
 	
-	$scope.add = function(){	
-		$http.post('/items', $scope.newItem).success(function(response){
-			alert('The item has been added!');
-		    $window.location.reload();	
-		})
-	}
 	
 	$scope.edit = function(id){
 		$http.get('/items/' + id).success(function(response){
@@ -43,6 +61,18 @@ items.controller('itemsController', ['$scope', '$http', '$window', function($sco
 	};
 	
 	$scope.save = function(){
+		if($scope.item.status === normal) {
+					$scope.item.group = normalGroup;
+				}
+				else if ($scope.item.status === attention) {
+					$scope.item.group = attentionGroup;
+				}
+				else if ($scope.item.status === warning) {
+					$scope.item.group = warningGroup;
+				}
+				else {
+					$scope.item.group = dangerGroup;
+				}
 		var confirmUpdate = confirm ('Are you sure you want to make changes to this item?');
 		if (confirmUpdate == true){				
 				$http.put('/items/' + $scope.item._id, $scope.item).success(function(response){
