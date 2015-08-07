@@ -26,7 +26,9 @@
                                                       </div>
                                                       <label class="col-sm-2 col-sm-2 control-label">Status</label>
                                                       <div class="col-sm-3">
-                                                          <input type="text" class="form-control collapsed-input" ng-model="newItem.status" required>
+                                                          <select class="form-control" ng-model="newItem.status">
+                                                              <option ng-repeat="status in statuses">{{status}}</option>
+                                                          </select>
                                                       </div>
                                                       </span>
                                              <div class="pull-right hidden-phone">
@@ -46,7 +48,9 @@
                                                       </div>
                                                       <label class="col-sm-2 col-sm-2 control-label">Status</label>
                                                       <div class="col-sm-3">
-                                                          <input type="text" class="form-control collapsed-input" ng-model="item.status" required>
+                                                          <select class="form-control" ng-model="item.status">
+                                                              <option ng-repeat="status in statuses">{{status}}</option>
+                                                          </select>
                                                       </div>
                                                       </span>
                                              <div class="pull-right hidden-phone">
@@ -61,6 +65,7 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr> 
+                        <th>Id</th>
                         <th>Item</th>
                         <th>Status</th>
                         <th class="col-xs-2 centered-th">Edit</th>
@@ -68,7 +73,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="item in items | orderBy:'label'">
+                      <tr ng-repeat="item in items | orderBy:'id'">
+                        <td>{{item.id}}</td>
                         <td>{{item.label}}</td>
                         <td class="status" ng-style="set_color(item)">{{item.status}}</td>
                         <td align="center">
@@ -77,12 +83,64 @@
                         <td align="center">
                               <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(item._id)"><i class="fa fa-fw fa-remove"></i></button>
                         </td>
-                      </tr>             
+                      </tr> 
+                    </tbody>            
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
+          
+          <div class="row">
+            <div class="col-xs-12">          
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Link items in network graph</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                        <span class="task-title-sp">
+                            <label class="col-sm-2 col-sm-2 control-label">From item:</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" ng-model="connection.from">
+                                        <option ng-repeat="item in items">{{item.id}}</option>
+                                    </select>
+                                </div>
+                            <label class="col-sm-2 col-sm-2 control-label">To item:</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" ng-model="connection.to">
+                                        <option ng-repeat="item in items">{{item.id}}</option>
+                                    </select>
+                                </div>
+                        </span>
+                    <div class="pull-right hidden-phone">
+                        <div class="add-task-row">
+                            <button class="btn btn-success btn-sm pull-left right-button" ng-click="link()">Link</button>
+                        </div>
+                    </div>
+                </div>  
+                <div class="box-body">                          
+                   <table id="example1" class="table table-bordered table-striped">
+                     <thead>
+                      <tr> 
+                        <th>From</th>
+                        <th>To</th>
+                        <th class="col-xs-2 centered-th">Delete</th>
+                      </tr>
+                     </thead>
+                     <tbody>
+                      <tr ng-repeat="connection in connections | orderBy:'from'">
+                        <td>{{connection.from}}</td>
+                        <td>{{connection.to}}</td>
+                        <td align="center">
+                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(connection._id)"><i class="fa fa-fw fa-remove"></i></button>
+                        </td>
+                      </tr>
+                   </tbody>             
+                  </table>
+                </div><!-- /.box-body -->            
+              </div>
+            </div>
+          </div>
         </section><!-- /.content -->
         
        

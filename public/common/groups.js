@@ -1,6 +1,6 @@
 var groups = angular.module ('groups', []);
 
-var normalGroup = 'normalGroup';
-var attentionGroup = 'attentionGroup';
-var warningGroup = 'warningGroup';
-var dangerGroup = 'dangerGroup';
+var NormalGroup = 'normalGroup';
+var AttentionGroup = 'attentionGroup';
+var WarningGroup = 'warningGroup';
+var DangerGroup = 'dangerGroup';

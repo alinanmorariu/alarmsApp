@@ -4,6 +4,10 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
     
 	$http.get('/items').success(function(response){
 			$scope.items = response;
+            
+            $http.get('/edges').success(function(response){
+			    $scope.connections = response;		
+            
                         
             //Network graph	
         	$scope.nodes = new vis.DataSet();
@@ -20,25 +24,25 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
                 width: '100%',
                 clickToUse: false,
                 edges: {
-                    color: edgesColor
+                    color: EdgesColor
                 },
                 nodes: {
-                    color: normalStatusColor,
+                    color: NormalStatusColor,
                     shape: "database",
                     labelHighlightBold: true
                 },
                 groups: {
                     normalGroup: {
-                        color: normalStatusColor
+                        color: NormalStatusColor
                     },
                     attentionGroup: {
-                        color: attentionStatusColor
+                        color: AttentionStatusColor
                     },
                     warningGroup: {
-                        color: warningStatusColor
+                        color: WarningStatusColor
                     },
                     dangerGroup: {
-                        color: dangerStatusColor
+                        color: DangerStatusColor
                     }
                 },
                 interaction: {
@@ -54,22 +58,12 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
         
             $scope.nodes.add($scope.items);
         
-            $scope.edges.add([
-                {id: 1, from: 1, to: 2},
-                {id: 2, from: 2, to: 3},
-                {id: 3, from: 4, to: 6},
-                {id: 4, from: 4, to: 9},
-                {id: 5, from: 5, to: 7},
-                {id: 6, from: 8, to: 1},
-                {id: 7, from: 5, to: 1},
-                {id: 8, from: 6, to: 7},
-                {id: 9, from: 1, to: 6},
-            ]);
+            $scope.edges.add($scope.connections);
 
 	    $scope.normalItemsCount = function() {
             var count = 0;
             angular.forEach($scope.items, function(item) {
-		        if(item.status == normal) {
+		        if(item.status == Normal) {
 			        count += 1;
 		        }
             });
@@ -79,7 +73,7 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
 	     $scope.attentionItemsCount = function() {
 		     var count = 0;
              angular.forEach($scope.items, function(item) {
-		         if(item.status == attention) {
+		         if(item.status == Attention) {
 			          count += 1;
 		         }
              });
@@ -89,7 +83,7 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
 	      $scope.warningItemsCount = function() {
 		      var count = 0;
               angular.forEach($scope.items, function(item) {
-			      if(item.status == warning) {
+			      if(item.status == Warning) {
 				      count += 1;
 				  }
               });
@@ -99,11 +93,12 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
 		   $scope.dangerItemsCount = function() {
 			   var count = 0;
                angular.forEach($scope.items, function(item) {
-				   if(item.status == danger) {
+				   if(item.status == Danger) {
 					   count += 1;
 				   }
                });
                 return count; 
 			};
+        });
 	});
 }]);

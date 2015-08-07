@@ -1,7 +1,7 @@
 var colors = angular.module ('colors', []);
 
-var normalStatusColor = '#00a65a';
-var attentionStatusColor = '#f39c12';
-var warningStatusColor = '#ff851b';
-var dangerStatusColor = '#dd4b39';
-var edgesColor = '#3c8dbc';
+var NormalStatusColor = '#00a65a';
+var AttentionStatusColor = '#f39c12';
+var WarningStatusColor = '#ff851b';
+var DangerStatusColor = '#dd4b39';
+var EdgesColor = '#3c8dbc';

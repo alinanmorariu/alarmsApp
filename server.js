@@ -4,6 +4,7 @@ var mongojs = require('mongojs');
 var bodyParser = require('body-parser');
 
 var itemsdb = mongojs('items', ['items']);
+var edgesdb = mongojs('edges', ['edges']);
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -41,6 +42,25 @@ app.put('/items/:id', function(req, res){
 		new: true}, function(err,doc){
 			res.json(doc);
 		});
+});
+
+app.get('/edges', function(req, res){
+	edgesdb.edges.find(function(err, docs){
+		res.json(docs);
+	});
+});
+
+app.post('/edges', function(req, res){
+	edgesdb.edges.insert(req.body, function(err, doc){
+		res.json(doc);
+	});
+});
+
+app.delete('/edges/:id', function(req, res){
+	var id = req.params.id;
+	edgesdb.edges.remove({_id: mongojs.ObjectId(id)}, function(err,doc){
+		res.json(doc);
+	})
 });
 
 app.listen(3000);

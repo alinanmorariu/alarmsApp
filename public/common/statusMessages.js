@@ -1,7 +1,8 @@
 var statusMessages = angular.module ('statusMessages', []);
 
-var normal = 'Normal';
-var attention = 'Attention';
-var warning = 'Warning';
-var danger = 'Danger';
+var Normal = 'Normal';
+var Attention = 'Attention';
+var Warning = 'Warning';
+var Danger = 'Danger';
+var StatusList = [Normal, Attention, Warning, Danger];
 
