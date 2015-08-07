@@ -33,16 +33,20 @@ alarms.controller('mainController', ['$scope', '$http', '$window', function($sco
                 },
                 groups: {
                     normalGroup: {
-                        color: NormalStatusColor
+                        color: NormalStatusColor,
+                        labelHighlightBold: true
                     },
                     attentionGroup: {
-                        color: AttentionStatusColor
+                        color: AttentionStatusColor,
+                        labelHighlightBold: true
                     },
                     warningGroup: {
-                        color: WarningStatusColor
+                        color: WarningStatusColor,
+                        labelHighlightBold: true
                     },
                     dangerGroup: {
-                        color: DangerStatusColor
+                        color: DangerStatusColor,
+                        labelHighlightBold: true
                     }
                 },
                 interaction: {

@@ -88,7 +88,7 @@ items.controller('itemsController', ['$scope', '$http', '$window', function($sco
 		}
 	};
 	
-	$scope.delete = function(id){
+	$scope.deleteItem = function(id){
 			var confirmDeletion = confirm('Are you sure you want to delete this item?');
 			if (confirmDeletion == true) {
 					$http.delete('/items/' + id).success(function(response){
@@ -116,7 +116,7 @@ items.controller('itemsController', ['$scope', '$http', '$window', function($sco
 	        }
 	});
 	
-	$scope.delete = function(id){
+	$scope.deleteConnection = function(id){
 			var confirmDeletion = confirm('Are you sure you want to delete this connection?');
 			if (confirmDeletion == true) {
 					$http.delete('/edges/' + id).success(function(response){

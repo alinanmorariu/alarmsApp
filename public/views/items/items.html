@@ -81,7 +81,7 @@
                               <button class="btn btn-block btn-info btn-xs btn-icon" data-toggle="collapse" data-target="#collapseme" ng-click="edit(item._id)"><i class="fa fa-fw fa-edit"></i></button>
                         </td>
                         <td align="center">
-                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(item._id)"><i class="fa fa-fw fa-remove"></i></button>
+                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="deleteItem(item._id)"><i class="fa fa-fw fa-remove"></i></button>
                         </td>
                       </tr> 
                     </tbody>            
@@ -132,7 +132,7 @@
                         <td>{{connection.from}}</td>
                         <td>{{connection.to}}</td>
                         <td align="center">
-                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="delete(connection._id)"><i class="fa fa-fw fa-remove"></i></button>
+                              <button class="btn btn-block btn-danger btn-xs btn-icon" ng-click="deleteConnection(connection._id)"><i class="fa fa-fw fa-remove"></i></button>
                         </td>
                       </tr>
                    </tbody>             
